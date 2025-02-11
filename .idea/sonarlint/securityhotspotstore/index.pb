@@ -11,3 +11,5 @@ J
 tests/pool-factory.test.ts,d/a/da082393a0c7b414c757a574a40cdc8ed19cbd8d
 O
 contracts/fee-distribution.clar,6/0/6012b98e1354d5129a7a650d1e3983629ca9094e
+N
+tests/fee-distribution.test.ts,a/4/a4f22c239308aec8b5101848d9318a911243ea57
