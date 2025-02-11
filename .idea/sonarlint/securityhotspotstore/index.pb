@@ -15,3 +15,5 @@ N
 tests/fee-distribution.test.ts,a/4/a4f22c239308aec8b5101848d9318a911243ea57
 C
 contracts/swap.clar,c/7/c70d96fb67aae555f11d3fab9b680c3ee4661210
+B
+tests/swap.test.ts,b/8/b8b55ac7c1913519bcdf401ff4709999c1b37511
