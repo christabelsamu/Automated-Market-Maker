@@ -9,3 +9,5 @@ K
 contracts/pool-factory.clar,9/c/9c19b6f17eb2292d8948fbdab9b23e7f6c24cf8e
 J
 tests/pool-factory.test.ts,d/a/da082393a0c7b414c757a574a40cdc8ed19cbd8d
+O
+contracts/fee-distribution.clar,6/0/6012b98e1354d5129a7a650d1e3983629ca9094e
