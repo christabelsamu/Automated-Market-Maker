@@ -7,3 +7,5 @@ D
 tests/router.test.ts,c/0/c0e68ae6f23e7680be8ad9eaac92b3da1ff4506b
 K
 contracts/pool-factory.clar,9/c/9c19b6f17eb2292d8948fbdab9b23e7f6c24cf8e
+J
+tests/pool-factory.test.ts,d/a/da082393a0c7b414c757a574a40cdc8ed19cbd8d
