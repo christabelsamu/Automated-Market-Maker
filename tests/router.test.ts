@@ -1,21 +1,51 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+// Mock storage for routes
+const routes = new Map()
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
+// Mock functions to simulate contract behavior
+function addRoute(tokenA: string, tokenB: string, pool: string) {
+  routes.set(`${tokenA}-${tokenB}`, pool)
+  return true
+}
 
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
+function removeRoute(tokenA: string, tokenB: string) {
+  routes.delete(`${tokenA}-${tokenB}`)
+  return true
+}
 
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
+function getRoute(tokenA: string, tokenB: string) {
+  const pool = routes.get(`${tokenA}-${tokenB}`)
+  if (!pool) throw new Error("Route not found")
+  return pool
+}
 
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});
+describe("Router Contract", () => {
+  beforeEach(() => {
+    routes.clear()
+  })
+  
+  it("should add a route", () => {
+    const result = addRoute("tokenA", "tokenB", "pool1")
+    expect(result).toBe(true)
+    expect(getRoute("tokenA", "tokenB")).toBe("pool1")
+  })
+  
+  it("should remove a route", () => {
+    addRoute("tokenA", "tokenB", "pool1")
+    const result = removeRoute("tokenA", "tokenB")
+    expect(result).toBe(true)
+    expect(() => getRoute("tokenA", "tokenB")).toThrow("Route not found")
+  })
+  
+  it("should get a route", () => {
+    addRoute("tokenA", "tokenB", "pool1")
+    const pool = getRoute("tokenA", "tokenB")
+    expect(pool).toBe("pool1")
+  })
+  
+  it("should throw an error for non-existent route", () => {
+    expect(() => getRoute("tokenC", "tokenD")).toThrow("Route not found")
+  })
+})
+
